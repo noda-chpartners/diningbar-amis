@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import PopularMenu from '../components/PopularMenu.astro';
+import MenuGallery from '../components/MenuGallery.astro';
+import Access from '../components/Access.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Header />
+  <main><Hero /><About /><PopularMenu /><MenuGallery /><Access /></main>
+  <Footer />
+</BaseLayout>
+
+<script>
+  import Lenis from 'lenis';
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+  const lenis = new Lenis({ duration: 1.05, smoothWheel: true });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reducedMotion) {
+    gsap.from('[data-hero-reveal]', { y: 28, opacity: 0, duration: 0.9, stagger: 0.1, delay: 0.2, ease: 'power3.out' });
+    gsap.utils.toArray<HTMLElement>('.reveal').forEach((element) => {
+      gsap.from(element, { y: 48, opacity: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: element, start: 'top 88%', once: true } });
+    });
+  }
+
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const mobileMenu = document.querySelector<HTMLElement>('.mobile-menu');
+  const setMenu = (open: boolean) => {
+    toggle?.setAttribute('aria-expanded', String(open));
+    toggle?.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    mobileMenu?.setAttribute('aria-hidden', String(!open));
+    document.body.classList.toggle('menu-open', open);
+  };
+  toggle?.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+  mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+  window.addEventListener('scroll', () => header?.classList.toggle('site-header--scrolled', window.scrollY > 40), { passive: true });
+</script>

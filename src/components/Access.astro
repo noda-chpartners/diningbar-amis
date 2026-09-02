@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import sign from '../assets/images/store-sign.jpg';
+import exterior from '../assets/images/exterior-day.jpg';
+import { site } from '../data/site';
+---
+
+<section class="access section" id="access">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div><p class="section-kicker section-kicker--light"><span>04</span> VISIT US</p><h2 class="section-title section-title--light"><span>神奈川新町で、</span><span>お待ちしています。</span></h2></div>
+      <p class="section-head__text">駅から歩いて5分。赤い看板を目印にお越しください。</p>
+    </div>
+    <div class="access__grid">
+      <div class="access__image reveal"><Image src={exterior} alt="シンガポール アミスの店舗外観" widths={[600, 960]} sizes="(max-width: 768px) 92vw, 48vw" /><div class="access__sign"><Image src={sign} alt="店舗の赤い看板" widths={[180, 320]} sizes="30vw" /></div></div>
+      <div class="access__info reveal">
+        <dl>
+          <div><dt>STORE</dt><dd>{site.name}</dd></div>
+          <div><dt>ADDRESS</dt><dd>{site.postalCode}<br />{site.address}</dd></div>
+          <div><dt>ACCESS</dt><dd>{site.access}</dd></div>
+          <div class="access__hours"><dt>OPEN</dt><dd>{site.hours.map((item) => <p><span>{item.label}</span>{item.time}</p>)}</dd></div>
+          <div><dt>CLOSED</dt><dd>{site.closed}</dd></div>
+          <div><dt>SEATS</dt><dd>{site.seats}</dd></div>
+        </dl>
+        <div class="access__actions"><a class="button button--gold" href={site.mapUrl} target="_blank" rel="noopener noreferrer">Google Mapsで見る</a><a class="access__phone" href={site.phoneHref}><small>ご予約・お問い合わせ</small>{site.phone}</a></div>
+      </div>
+    </div>
+  </div>
+</section>

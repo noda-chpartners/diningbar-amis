@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import chef from '../assets/images/chef-thali.jpg';
+import interior from '../assets/images/interior.jpg';
+---
+
+<section class="about section" id="about">
+  <div class="shell about__grid">
+    <div class="about__copy reveal">
+      <p class="section-kicker"><span>01</span> OUR TABLE</p>
+      <h2 class="section-title"><span>国境を越えて、</span><span>おいしいが集まる場所。</span></h2>
+      <p>シンガポール料理を中心に、ネパールやタイなど、アジア各地の個性豊かな料理を一つのテーブルへ。スパイスの香り、深みのあるソース、炊きたてのごはん。ひと皿ごとに異なる土地の魅力を、気軽にお楽しみください。</p>
+      <p>全10席の店内は、料理と会話をゆっくり楽しめる落ち着いた空間。おひとりでのランチから、ご家族や友人とのディナーまでお待ちしています。</p>
+    </div>
+    <div class="about__visual reveal">
+      <figure class="about__image about__image--main"><Image src={chef} alt="料理を仕上げるシェフとネパールタリ" widths={[480, 720]} sizes="(max-width: 768px) 84vw, 38vw" /></figure>
+      <figure class="about__image about__image--sub"><Image src={interior} alt="丸いテーブルのある店内" widths={[260, 420]} sizes="(max-width: 768px) 46vw, 20vw" /></figure>
+      <p class="about__note">A LITTLE TRIP<br />ACROSS ASIA</p>
+    </div>
+  </div>
+</section>

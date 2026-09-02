@@ -1,0 +1,29 @@
+---
+import { navigation, site } from '../data/site';
+---
+
+<header class="site-header" data-header>
+  <a class="site-header__brand" href="#top" aria-label={`${site.shortName} トップへ`}>
+    <span class="site-header__brand-en">SINGAPORE AMIS</span>
+    <span class="site-header__brand-jp">ASIAN DINING &amp; BAR</span>
+  </a>
+  <nav class="site-header__nav" aria-label="メインナビゲーション">
+    {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+  <a class="site-header__phone" href={site.phoneHref}>
+    <span>RESERVATION</span><strong>{site.phone}</strong>
+  </a>
+  <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu__inner">
+    <p class="mobile-menu__eyebrow">SINGAPORE AMIS</p>
+    <nav aria-label="モバイルナビゲーション">
+      {navigation.map((item, index) => <a href={item.href}><span>0{index + 1}</span>{item.label}</a>)}
+    </nav>
+    <a class="mobile-menu__call" href={site.phoneHref}><small>ご予約・お問い合わせ</small>{site.phone}</a>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import softShellCrab from '../assets/images/soft-shell-crab.jpg';
+import hainaneseChickenRice from '../assets/images/hainanese-chicken-rice.jpg';
+import biryani from '../assets/images/biryani.jpg';
+import blackCurry from '../assets/images/black-curry.jpg';
+import laksa from '../assets/images/laksa.jpg';
+import { popularMenu } from '../data/site';
+
+const imageMap = { softShellCrab, hainaneseChickenRice, biryani, blackCurry, laksa };
+---
+
+<section class="popular section" id="popular">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div><p class="section-kicker section-kicker--light"><span>02</span> MOST LOVED</p><h2 class="section-title section-title--light"><span>迷ったら、まずは</span><span>この5皿から。</span></h2></div>
+      <p class="section-head__text">お店で人気のメニューを、ランキング形式でご紹介します。</p>
+    </div>
+    <div class="popular__list">
+      {popularMenu.map((item, index) => (
+        <article class={`popular-card ${index === 0 ? 'popular-card--featured' : ''} reveal`}>
+          <div class="popular-card__image"><Image src={imageMap[item.image]} alt={item.name} widths={[420, 640, 900]} sizes={index === 0 ? '(max-width: 768px) 92vw, 52vw' : '(max-width: 768px) 92vw, 28vw'} /></div>
+          <div class="popular-card__body"><span class="popular-card__rank">{item.rank}</span><div><h3>{item.name}</h3><p>{item.en}</p></div></div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

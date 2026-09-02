@@ -1,0 +1,12 @@
+---
+import { site } from '../data/site';
+---
+
+<footer class="footer">
+  <div class="shell footer__inner">
+    <div><p class="footer__logo">SINGAPORE<br /><strong>AMIS</strong></p><p class="footer__sub">ASIAN DINING &amp; BAR</p></div>
+    <div class="footer__details"><p>{site.postalCode} {site.address}</p><a href={site.phoneHref}>{site.phone}</a></div>
+    <p class="footer__copy">© {new Date().getFullYear()} SINGAPORE AMIS</p>
+  </div>
+  <a class="footer__back" href="#top" aria-label="ページ上部へ戻る">BACK TO TOP ↑</a>
+</footer>

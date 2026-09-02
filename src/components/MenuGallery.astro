@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import thali from '../assets/images/nepali-thali.jpg';
+import dinnerSelection from '../assets/images/dinner-selection.jpg';
+import beerMenu from '../assets/images/beer-menu.jpg';
+import lunchMenu from '../assets/images/lunch-menu.jpg';
+import otsumami from '../assets/images/otsumami-menu.jpg';
+---
+
+<section class="menu-gallery section" id="menu">
+  <div class="shell">
+    <div class="menu-gallery__intro reveal">
+      <p class="section-kicker"><span>03</span> MORE FLAVORS</p>
+      <h2 class="section-title"><span>昼も夜も、</span><span>アジアを味わう。</span></h2>
+      <p>ごはんもの、カレー、麺料理から、お酒と楽しむ一品料理まで。ランチタイムもディナータイムも、多彩なアジア料理をご用意しています。</p>
+    </div>
+    <div class="menu-gallery__mosaic">
+      <figure class="menu-gallery__item menu-gallery__item--wide reveal"><Image src={thali} alt="ネパールタリ" widths={[560, 900]} sizes="(max-width: 768px) 92vw, 48vw" /><figcaption><span>RICE &amp; CURRY</span>ひと皿で広がる、スパイスの世界</figcaption></figure>
+      <figure class="menu-gallery__item reveal"><Image src={dinnerSelection} alt="生春巻きや唐揚げなどのディナーメニュー" widths={[420, 640]} sizes="(max-width: 768px) 92vw, 28vw" /><figcaption><span>DINNER</span>お酒と楽しむ一品料理</figcaption></figure>
+      <figure class="menu-gallery__item reveal"><Image src={beerMenu} alt="アジア各国のビールメニュー" widths={[420, 640]} sizes="(max-width: 768px) 92vw, 28vw" /><figcaption><span>ASIAN BEER</span>料理に合わせる世界のビール</figcaption></figure>
+    </div>
+    <div class="menu-gallery__boards reveal">
+      <div class="menu-gallery__board"><Image src={lunchMenu} alt="ランチメニュー表" widths={[360, 560]} sizes="(max-width: 768px) 72vw, 36vw" /></div>
+      <div class="menu-gallery__board"><Image src={otsumami} alt="おつまみメニュー表" widths={[360, 560]} sizes="(max-width: 768px) 72vw, 36vw" /></div>
+    </div>
+    <p class="menu-gallery__notice">※ 掲載写真はメニューの一例です。最新の内容は店頭でご確認ください。</p>
+  </div>
+</section>
