@@ -29,5 +29,5 @@ export const popularMenu = [
   { rank: '02', name: '海南鶏飯', en: 'HAINANESE CHICKEN RICE', image: 'hainaneseChickenRice' },
   { rank: '03', name: 'ビリヤニ', en: 'BIRYANI', image: 'biryani' },
   { rank: '04', name: 'ブラックカレー', en: 'BLACK CURRY', image: 'blackCurry' },
-  { rank: '05', name: 'ラクサ', en: 'LAKSA', image: 'laksa' },
+  { rank: '05', name: 'ナンゴレン', en: 'LAKSA', image: 'laksa' },
 ] as const;
