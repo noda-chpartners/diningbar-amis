@@ -13,8 +13,7 @@ export const site = {
   ],
   closed: '定休日なし',
   seats: '28席',
-  mapUrl:
-    'https://maps.app.goo.gl/iMvrRkkJuiJDgnCeA?g_st=ic',
+  mapUrl: 'https://www.google.com/maps?cid=5107286804935320710',
 } as const;
 
 export const navigation = [
