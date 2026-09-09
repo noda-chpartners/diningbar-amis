@@ -5,7 +5,7 @@ export const site = {
   phone: '045-345-6731',
   phoneHref: 'tel:0453456731',
   postalCode: '〒221-0043',
-  address: '神奈川県横浜市神奈川区新町5-5 ウィナス 1F',
+  address: '神奈川県横浜市神奈川区新町5-5 ウィナス新町 1F',
   access: '神奈川新町駅 徒歩3分',
   hours: [
     { label: 'LUNCH TIME', time: '11:00 – 15:00' },
