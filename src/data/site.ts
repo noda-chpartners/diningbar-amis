@@ -14,7 +14,7 @@ export const site = {
   closed: '定休日なし',
   seats: '28席',
   mapUrl:
-    'https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E6%A8%AA%E6%B5%9C%E5%B8%82%E7%A5%9E%E5%A5%88%E5%B7%9D%E5%8C%BA%E6%96%B0%E7%94%BA5-5%20%E3%82%A6%E3%82%A3%E3%83%8A%E3%82%B9%201F',
+    'google.com/maps?q=SINGAPORE+AMIS+ASIAN+DINING+%26BAR+シンガポール+アミス+アジアン+ダイニング＆バー,+５−５+新町+神奈川区+横浜市+神奈川県+221-0043&ftid=0x60185dfc71f12ebf:0x46e0ba4a1e35a486&entry=gps&shh=CAE&lucs=,94297699,94231188,94280568,100821559,47071704,94218641,94282134,94286869,100820247,100822504&g_ep=CAISEjI2LjMzLjEuOTYxODkxNDMyMBgAIO-qBypdLDk0Mjk3Njk5LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCw5NDI4Njg2OSwxMDA4MjAyNDcsMTAwODIyNTA0QgJKUA%3D%3D&skid=679f41cd-8139-4026-9a30-7d16aeb39656&g_st=ic',
 } as const;
 
 export const navigation = [
