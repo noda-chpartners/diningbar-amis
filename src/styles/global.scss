@@ -856,6 +856,101 @@ a {
       font-weight: 500;
     }
   }
+
+  &__order {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: clamp(20px, 4vw, 48px);
+    align-items: center;
+    margin-top: clamp(48px, 7vw, 88px);
+    padding: clamp(22px, 3vw, 32px) clamp(22px, 3.4vw, 40px);
+    border: 1px solid rgba($gold, 0.38);
+    background: rgba(#000, 0.18);
+
+    h3 {
+      margin: 6px 0 8px;
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.4;
+    }
+
+    p {
+      margin: 0;
+      color: rgba($paper, 0.72);
+      font-size: 0.84rem;
+      line-height: 1.8;
+    }
+  }
+
+  &__order-copy > p:first-child {
+    color: $gold;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+  }
+
+  &__order-code {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 0;
+    padding: 14px 16px 14px 18px;
+    border: 0;
+    background: rgba($paper, 0.06);
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba($paper, 0.12);
+    }
+  }
+
+  &__order-code-value {
+    display: flex;
+    min-width: 168px;
+    flex-direction: column;
+    gap: 4px;
+
+    span {
+      color: rgba($paper, 0.5);
+      font-size: 0.64rem;
+    }
+
+    strong {
+      color: $paper;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+  }
+
+  &__order-copy-icon {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    place-items: center;
+    color: $gold;
+  }
+
+  &__order-icon-check { display: none; }
+
+  &__order-code.is-copied &__order-icon-copy { display: none; }
+  &__order-code.is-copied &__order-icon-check { display: block; }
+
+  &__order-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
 }
 
 .footer {
@@ -1108,6 +1203,7 @@ a {
   .access__image { width: calc(100% - 24px); height: min(135vw, 660px); }
   .access__sign { right: -24px; width: 38%; }
   .access__actions { flex-direction: row; align-items: center; }
+  .access__order { grid-template-columns: 1fr; gap: 18px; }
 
   .footer__inner { grid-template-columns: 1fr; gap: 30px; }
   .footer__details { max-width: 440px; }
@@ -1149,6 +1245,7 @@ a {
   .access__hours dd p { grid-template-columns: 1fr; margin-bottom: 8px; }
   .access__actions { flex-direction: column; align-items: stretch; }
   .access__phone { text-align: center; }
+  .access__order .button { width: 100%; }
 
   .footer { padding-top: 72px; }
   .footer__logo strong { font-size: 3.3rem; }

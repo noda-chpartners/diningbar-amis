@@ -25,5 +25,60 @@ import { site } from '../data/site';
         <div class="access__actions"><a class="button button--gold" href={site.mapUrl} target="_blank" rel="noopener noreferrer">Google Mapsで見る</a><a class="access__phone" href={site.phoneHref}><small>ご予約・お問い合わせ</small>{site.phone}</a></div>
       </div>
     </div>
+    <aside class="access__order reveal">
+      <div class="access__order-copy">
+        <p>UBER EATS</p>
+        <h3>Uber Eatsでもご注文いただけます</h3>
+        <p>初めてUber Eatsをご利用の方は、下記コードでお得にご注文いただけます。</p>
+      </div>
+      <button class="access__order-code" type="button" data-promo-code={site.uberEatsCode} data-copy-promo aria-label={`プロモーションコード ${site.uberEatsCode} をコピー`}>
+        <span class="access__order-code-value">
+          <span>プロモーションコード</span>
+          <strong>{site.uberEatsCode}</strong>
+        </span>
+        <span class="access__order-copy-icon" aria-hidden="true">
+          <svg class="access__order-icon-copy" viewBox="0 0 24 24" width="20" height="20"><rect x="8" y="7" width="11" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6" /><path d="M8 11H5.5A1.5 1.5 0 0 1 4 9.5v-5A1.5 1.5 0 0 1 5.5 3h8A1.5 1.5 0 0 1 15 4.5V7" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+          <svg class="access__order-icon-check" viewBox="0 0 24 24" width="20" height="20"><path d="M5 12.5 9.5 17 19 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </span>
+        <span class="access__order-status" data-copy-status role="status"></span>
+      </button>
+      <a class="button button--gold" href={site.uberEatsUrl} target="_blank" rel="noopener noreferrer">ご注文はこちら</a>
+    </aside>
   </div>
 </section>
+
+<script>
+  const root = document.querySelector<HTMLButtonElement>('[data-promo-code]');
+  const code = root?.dataset.promoCode ?? '';
+  const status = root?.querySelector<HTMLElement>('[data-copy-status]');
+  let timer = 0;
+
+  const copyCode = async () => {
+    if (!code || !root) return;
+    try {
+      await navigator.clipboard.writeText(code);
+    } catch {
+      const input = document.createElement('textarea');
+      input.value = code;
+      input.setAttribute('readonly', '');
+      input.style.position = 'fixed';
+      input.style.left = '-9999px';
+      document.body.append(input);
+      input.select();
+      const copied = document.execCommand('copy');
+      input.remove();
+      if (!copied) return;
+    }
+    root.classList.add('is-copied');
+    if (status) status.textContent = 'コピーしました';
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      root.classList.remove('is-copied');
+      if (status) status.textContent = '';
+    }, 2000);
+  };
+
+  root?.addEventListener('click', () => {
+    void copyCode();
+  });
+</script>

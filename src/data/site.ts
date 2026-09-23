@@ -14,6 +14,8 @@ export const site = {
   closed: '定休日なし',
   seats: '28席',
   mapUrl: 'https://www.google.com/maps?cid=5107286804935320710',
+  uberEatsUrl: 'https://www.ubereats.com/store-browse-uuid/deb72a68-50d8-4877-a2c3-0800e0fe49f4?diningMode=PICKUP',
+  uberEatsCode: 'eats-nqvwu9by',
 } as const;
 
 export const navigation = [
