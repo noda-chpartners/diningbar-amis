@@ -7,10 +7,7 @@ interface Props {
   description?: string;
 }
 
-const {
-  title = `${site.shortName} | 神奈川新町のアジアンダイニング＆バー`,
-  description = 'シンガポール料理を中心に、ネパールやタイなどアジア各地の味を楽しめる神奈川新町のダイニング＆バー。ランチからディナーまで営業しています。',
-} = Astro.props;
+const { title = `${site.shortName} | 神奈川新町のアジアンダイニング＆バー`, description = 'シンガポール料理を中心に、ネパールやタイなどアジア各地の味を楽しめる神奈川新町のダイニング＆バー。ランチからディナーまで営業しています。' } = Astro.props;
 ---
 
 <!doctype html>
@@ -30,6 +27,7 @@ const {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="/ogp.jpg" />
     <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+    <meta name="google-site-verification" content="W6X3cwCqNwAUejsnK3WonJ1538dIruj4tj0PKa2gu5U" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet" />
